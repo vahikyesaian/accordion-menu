@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fontello-433b3838/css/fontello.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #unique{
+            width: 100%;
+            height: 100vh;
+            background-color: #34495e;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+         
+        }
+        .acc{
+            width: 100%;
+            /* background-color: aqua; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        .acc>h2{
+            font-size: 25px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            color: aliceblue;
+        }
+        .box{
+            width: 50%;
+            /* border: 2px solid red; */
+        }
+        #list>li{
+            list-style-type: none;
+            width: 100%;
+            cursor: pointer;
+            /* padding: 10px; */
+        }
+        #list>li>h3{
+            width: 100%;
+            height: 60px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            font-size: 20px;
+            background-color: floralwhite;
+            color: black;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 3px;
+            position: relative;
+            padding-left: 10px;
+        }
+        #list>li>h3>i{
+            position: absolute;
+            right: 5px;
+            font-size: 25px;
+            color: black;
+        }
+        #list p{
+            /* padding: 15px; */
+            text-align: justify;
+            background-color: rgb(189, 222, 236);
+            border-radius: 3px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: capitalize;
+            font-size: 14px;
+            overflow: hidden;
+            transition: .4s;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    <section id="unique">
+        <section class="acc">
+            <h2>accordion menu</h2>
+        </section>
+        <div class="box">
+            <ul id="list">
+                <li data-status="off" onclick="_add(this,1)">
+                    <h3>what is web development?<i class="icon-demo icon-plus"></i></h3>
+                    <p>Web Development broadly refers to the tasks associated with developing functional websites and applications for the Internet. The web development process includes web design, web content development, client-side/server-side scripting and network security configuration, among other tasks.</p>
+                </li>
+                <li data-status="off" onclick="_add(this,2)">
+                    <h3>What is HTML?<i class="icon-demo icon-plus"></i></h3>
+                    <p>HTML, aka HyperText Markup Language, is the dominant markup language for creating websites and anything that can be viewed in a web browser.</p>
+                </li>
+                <li data-status="off" onclick="_add(this,3)">
+                    <h3>What are some basic technical skills of a Front-End developer?<i class="icon-demo icon-plus"></i></h3>
+                    <p>HTML, CSS, JavaScript
+                        Frameworks (CSS and JavaScript frameworks)
+                        Responsive Design
+                        Version Control/Git
+                        Testing/Debugging
+                        Browser Developer Tools
+                        Web Performance
+                        SEO (Search Engine Optimization)
+                        Command Line
+                        CMS (Content Management System)</p>
+                </li>
+                <li data-status="off" onclick="_add(this,4)">
+                    <h3>What is HTTP?<i class="icon-demo icon-plus"></i></h3>
+                    <p>HTTP, aka HyperText Transfer Protocol, is the underlying protocol used by the World Wide Web and this protocol defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands.</p>
+                </li>
+                <li data-status="off" onclick="_add(this,4)">
+                    <h3>What is cors?<i class="icon-demo icon-plus"></i></h3>
+                    <p>CORS, aka Cross-Origin Resource Sharing, is a mechanism that enables many resources (e.g. images, stylesheets, scripts, fonts) on a web page to be requested from another domain outside the domain from which the resource originated.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+<script>
+
+    let _li = document.querySelectorAll('#list>li')
+    let date= []
+    for(i=0; i<_li.length; i++){
+        date[i]=document.querySelector('#list>li:nth-of-type('+(i+1)+')>p').clientHeight
+        document.querySelector('#list>li:nth-of-type('+(i+1)+')>p').style.height=0
+
+    }
+    console.log(date)
+
+
+    
+    function _add(desk,num){
+        sunk=desk.getAttribute('data-status')
+        let y =desk.children
+        if(sunk == 'off'){
+            y[1].style.height=date[num]+'px'
+            desk.setAttribute('data-status','on')
+
+        }else{
+            y[1].style.height=0
+            desk.setAttribute('data-status','off')
+            
+        }
+        
+        
+    }
+</script>
+</html>
